@@ -25,4 +25,13 @@ class TreeTest < Minitest::Test
   def test_initialize_tree
     assert_equal 4, @tree.root.data
   end
+
+  def test_build_tree
+    assert_equal 2, @tree.root.left.data
+    assert_equal 6, @tree.root.right.data
+    assert_equal 1, @tree.root.left.left.data
+    assert_equal 3, @tree.root.left.right.data
+    assert_equal 5, @tree.root.right.left.data
+    assert_equal 7, @tree.root.right.right.data
+  end
 end

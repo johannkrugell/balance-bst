@@ -107,4 +107,18 @@ class Tree < Node
     current_node = current_node.left until current_node.left.nil?
     current_node
   end
+
+  def find(value)
+    current_node = @root
+    until current_node.nil?
+      if value < current_node.data
+        current_node = current_node.left
+      elsif value > current_node.data
+        current_node = current_node.right
+      else
+        return current_node
+      end
+    end
+    nil
+  end
 end

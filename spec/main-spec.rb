@@ -56,5 +56,15 @@ class TreeTest < Minitest::Test
     assert_equal 11, @tree.root.right.data
   end
 
+  def test_find
+    assert_equal 7, @tree.find(7).data
+    assert_equal 4, @tree.find(4).data
+    assert_equal 10, @tree.find(10).data
+    assert_equal 3, @tree.find(3).data
+    assert_equal 6, @tree.find(6).data
+    assert_equal 8, @tree.find(8).data
+    assert_equal 11, @tree.find(11).data
+    assert_equal 1, @tree.find(1).data
+  end
 
 end

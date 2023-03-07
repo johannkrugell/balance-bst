@@ -121,4 +121,17 @@ class Tree < Node
     end
     nil
   end
+
+  def level_order(current_node = @root)
+    queue = []
+    result = []
+    queue.push(current_node)
+    until queue.empty?
+      current_node = queue.shift
+      result.push(current_node.data)
+      queue.push(current_node.left) unless current_node.left.nil?
+      queue.push(current_node.right) unless current_node.right.nil?
+    end
+    result
+  end  
 end

@@ -67,4 +67,10 @@ class TreeTest < Minitest::Test
     assert_equal 1, @tree.find(1).data
   end
 
+  def test_level_order
+    assert_equal [7, 4, 10, 3, 6, 8, 11, 1], @tree.level_order
+    
+  end
+
+
 end

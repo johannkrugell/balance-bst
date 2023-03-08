@@ -158,4 +158,13 @@ class Tree < Node
       result.push(current_node.data)
       result
   end
+
+  def height(value)
+    return 0 if value == nil
+    current_node = find(value)
+    return -1 if current_node.nil?
+      left_height = height(current_node.left.nil? ? 0 : current_node.left.data)
+      right_height = height(current_node.right.nil? ? 0: current_node.right.data)
+      left_height > right_height ? left_height + 1 : right_height + 1
+  end
 end

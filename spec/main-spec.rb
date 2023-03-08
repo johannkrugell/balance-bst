@@ -83,5 +83,12 @@ class TreeTest < Minitest::Test
     assert_equal [1, 3, 6, 4, 8, 11, 10, 7], @tree.postorder
   end
 
+  def test_height
+    assert_equal 0, @tree.height(8)
+    assert_equal 1, @tree.height(3)
+    assert_equal 3, @tree.height(7)
+  end
+
+
 
 end

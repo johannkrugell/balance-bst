@@ -134,4 +134,28 @@ class Tree < Node
     end
     result
   end  
+
+  def inorder(current_node = @root, result = [])
+    return if current_node.nil?
+      inorder(current_node.left, result)
+      result.push(current_node.data)
+      inorder(current_node.right, result)
+      result
+  end
+
+  def preorder(current_node = @root, result = [])
+    return if current_node.nil?
+      result.push(current_node.data)
+      preorder(current_node.left, result)
+      preorder(current_node.right, result)
+      result
+  end
+
+  def postorder(current_node = @root, result = [])
+    return if current_node.nil?
+      postorder(current_node.left, result)
+      postorder(current_node.right, result)
+      result.push(current_node.data)
+      result
+  end
 end

@@ -69,7 +69,18 @@ class TreeTest < Minitest::Test
 
   def test_level_order
     assert_equal [7, 4, 10, 3, 6, 8, 11, 1], @tree.level_order
-    
+  end
+
+  def test_inorder
+    assert_equal [1, 3, 4, 6, 7, 8, 10, 11], @tree.inorder
+  end
+
+  def test_preorder
+    assert_equal [7, 4, 3, 1, 6, 10, 8, 11], @tree.preorder
+  end
+
+  def test_postorder
+    assert_equal [1, 3, 6, 4, 8, 11, 10, 7], @tree.postorder
   end
 
 

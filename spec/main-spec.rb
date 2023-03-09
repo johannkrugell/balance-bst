@@ -89,6 +89,10 @@ class TreeTest < Minitest::Test
     assert_equal 3, @tree.height(7)
   end
 
-
+  def test_depth
+    assert_equal 0, @tree.depth(7)
+    assert_equal 1, @tree.depth(4)
+    assert_equal 3, @tree.depth(1)
+  end
 
 end

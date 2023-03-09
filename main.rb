@@ -167,4 +167,22 @@ class Tree < Node
       right_height = height(current_node.right.nil? ? 0: current_node.right.data)
       left_height > right_height ? left_height + 1 : right_height + 1
   end
+
+  def depth(value)
+    current_node = @root
+    root = @root
+    return -1 if current_node.nil?
+    current_depth = 0
+    until current_node.data == value do
+      if current_node.data > value
+        root = root.left
+        current_node = root
+      else
+        root = root.right
+        current_node = root
+      end
+      current_depth += 1
+    end
+    current_depth
+  end
 end

@@ -20,6 +20,7 @@ end
 class TreeTest < Minitest::Test
   def setup
     @tree = Tree.new([1, 8, 3, 4, 10, 6, 7, 11])
+    @unbalanced_tree = Tree.new([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
   end
 
   def test_initialize_tree
@@ -93,6 +94,13 @@ class TreeTest < Minitest::Test
     assert_equal 0, @tree.depth(7)
     assert_equal 1, @tree.depth(4)
     assert_equal 3, @tree.depth(1)
+  end
+
+  def test_balanced
+    assert @tree.height(@tree.root.data) - @tree.height(@tree.root.left.data) <= 1
+    assert @tree.height(@tree.root.data) - @tree.height(@tree.root.right.data) <= 1
+    assert @unbalanced_tree.height(@unbalanced_tree.root.data) - @unbalanced_tree.height(@unbalanced_tree.root.left.data) > 1
+    assert @unbalanced_tree.height(@unbalanced_tree.root.data) - @unbalanced_tree.height(@unbalanced_tree.root.right.data) > 1
   end
 
 end

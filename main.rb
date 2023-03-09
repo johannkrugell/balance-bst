@@ -185,4 +185,12 @@ class Tree < Node
     end
     current_depth
   end
+
+  def balanced?
+    left_height = height(@root.left.nil? ? 0 : @root.left.data)
+    puts left_height
+    right_height = height(@root.right.nil? ? 0 : @root.right.data)
+    puts right_height
+    (left_height - right_height).abs <= 1
+  end
 end

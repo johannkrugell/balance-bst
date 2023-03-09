@@ -193,4 +193,9 @@ class Tree < Node
     puts right_height
     (left_height - right_height).abs <= 1
   end
+
+  def rebalance
+    array = level_order
+    @root = build_tree(array)
+  end
 end

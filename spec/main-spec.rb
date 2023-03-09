@@ -103,4 +103,9 @@ class TreeTest < Minitest::Test
     assert @unbalanced_tree.height(@unbalanced_tree.root.data) - @unbalanced_tree.height(@unbalanced_tree.root.right.data) > 1
   end
 
+  def test_rebalance
+    @unbalanced_tree.rebalance
+    assert @unbalanced_tree.height(@unbalanced_tree.root.data) - @unbalanced_tree.height(@unbalanced_tree.root.left.data) <= 1
+    assert @unbalanced_tree.height(@unbalanced_tree.root.data) - @unbalanced_tree.height(@unbalanced_tree.root.right.data) <= 1
+  end
 end

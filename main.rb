@@ -188,10 +188,8 @@ class Tree < Node
 
   def balanced?
     left_height = height(@root.left.nil? ? 0 : @root.left.data)
-    puts left_height
     right_height = height(@root.right.nil? ? 0 : @root.right.data)
-    puts right_height
-    (left_height - right_height).abs <= 1
+    puts (left_height - right_height).abs <= 1 ?  "balanced" : "unbalanced"
   end
 
   def rebalance
@@ -199,3 +197,26 @@ class Tree < Node
     @root = build_tree(array)
   end
 end
+
+tree = Tree.new(Array.new(15) { rand(1..100) })
+tree.pretty_print
+tree.balanced?
+puts "Level-order: #{tree.level_order}"
+puts "Pre-order #{tree.preorder}"
+puts "Post-order #{tree.postorder}"
+puts "In-order #{tree.inorder}"
+tree.insert(101)
+tree.insert(102)
+tree.insert(103)
+tree.insert(104)
+tree.insert(105)
+tree.insert(106)
+tree.pretty_print
+tree.balanced?
+tree.rebalance
+tree.pretty_print
+tree.balanced?
+puts "Level-order: #{tree.level_order}"
+puts "Pre-order #{tree.preorder}"
+puts "Post-order #{tree.postorder}"
+puts "In-order #{tree.inorder}"
